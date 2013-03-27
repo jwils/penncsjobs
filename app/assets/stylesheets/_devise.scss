@@ -1,0 +1,30 @@
+.devise {
+  /* We use this to get basic styling on all basic form elements */
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea {
+    padding: emCalc(10px);
+    font-size: emCalc(20px);
+    margin: 0 0 emCalc(10px) 0;
+  }
+
+  legend {
+    font-size: emCalc(30px);
+    @extend %subheader;
+  }
+
+  div {
+    text-align:center;
+  }
+}

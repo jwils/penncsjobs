@@ -1,8 +1,8 @@
-<div class="large-10 columns">
+<div class="large-8 columns">
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => "devise custom" }) do |f| %>
     <fieldset>
-      <legend class="subheader">Forgot your password?</legend>
+      <legend>Forgot your password?</legend>
 
   <div>
   <% if resource.errors[:email].length > 0 %> <label class="error">Error</label> <% end %>
