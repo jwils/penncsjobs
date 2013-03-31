@@ -24,7 +24,8 @@ describe JobPostingsController do
   # JobPosting. As you add validations to JobPosting, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "user" => "" }
+    { "title" => "some title",
+      "description" => "Some description"}
   end
 
   # This should return the minimal set of values that should be in the session

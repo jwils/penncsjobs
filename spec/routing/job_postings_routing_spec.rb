@@ -7,6 +7,10 @@ describe JobPostingsController do
       get("/job_postings").should route_to("job_postings#index")
     end
 
+    it "routes to #index" do
+      get("/").should route_to("job_postings#index")
+    end
+
     it "routes to #new" do
       get("/job_postings/new").should route_to("job_postings#new")
     end
