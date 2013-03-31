@@ -1,0 +1,19 @@
+.job_posting_entry {
+  display: block;
+  height: emCalc(100px);
+
+  &:hover {
+    background-color: $peter-river;
+    a {
+      color: white;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
+
+.job_posting_entry
+
+h4 {
+}

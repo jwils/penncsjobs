@@ -1,0 +1,4 @@
+<div class="job_posting_entry panel" id="<%= @job_posting.id %>"  onclick="location.href='<%= job_posting_path(@job_posting) %>';"  style="cursor:pointer;">
+  <h4 class="subheader"><%= @job_posting.title %></h4>
+  <h6 class="subheader">Posted by <%= link_to 'Josh Wilson', '/users/sign_in' %><%# @job_posting.user.first_name %></h6>
+</div>

@@ -2,7 +2,7 @@ class JobPostingsController < ApplicationController
   # GET /job_postings
   # GET /job_postings.json
   def index
-    @job_postings = JobPosting.all
+    @job_postings = JobPosting.page(params[:page]).per(1)
 
     respond_to do |format|
       format.html # index.html.erb
