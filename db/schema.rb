@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326213430) do
+ActiveRecord::Schema.define(:version => 20130327062202) do
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.string   "website"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "job_postings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.string   "title"
+    t.string   "location"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "job_postings", ["company_id"], :name => "index_job_postings_on_company_id"
+  add_index "job_postings", ["user_id"], :name => "index_job_postings_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -30,6 +51,12 @@ ActiveRecord::Schema.define(:version => 20130326213430) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "year"
+    t.string   "major"
+    t.string   "job_title"
+    t.integer  "company_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

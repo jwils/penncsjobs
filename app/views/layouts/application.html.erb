@@ -11,13 +11,13 @@
   <%= render 'layouts/navigation' %>
 </nav>
 <div class="row">
-  <div class="row" id="doc-alert-boxes">
-    <%= render 'layouts/notifications' %>
-  </div>
-  <div class="row large-9 push-3 columns">
+  <div class="row large-9 <%= "push-3" if devise_controller? %> columns">
+    <div class="row <%= "large-9" if devise_controller? %>" id="doc-alert-boxes">
+      <%= render 'layouts/notifications' %>
+    </div>
     <%= yield %>
   </div>
-  <%# render 'layouts/sidebar' %>
+  <%= render 'layouts/sidebar' unless devise_controller?%>
 </div>
 
 <footer>
