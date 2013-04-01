@@ -1,4 +1,5 @@
 <div class="job_posting_entry panel" id="<%= @job_posting.id %>"  onclick="location.href='<%= job_posting_path(@job_posting) %>';"  style="cursor:pointer;">
-  <h4 class="subheader"><%= @job_posting.title %></h4>
-  <h6 class="subheader">Posted by <%= link_to 'Josh Wilson', '/users/sign_in' %><%# @job_posting.user.first_name %></h6>
+  <%= image_tag 'up_arrow.png' %>
+  <h4 class="subheader"><%= @job_posting.title %> <b>at</b> <%= link_to @job_posting.company.name, @job_posting.company %></h4>
+  <h6 class="subheader">Posted by <%= link_to 'Josh Wilson', @job_posting.user %></h6>
 </div>
