@@ -11,9 +11,16 @@
       }
     }
   }
-}
 
-.job_posting_entry
+  h4 {
+    margin-left: emCalc(40px);
+  }
 
-h4 {
+  h6 {
+    margin-left: emCalc(58px);
+  }
+
+  img {
+    float: left;
+  }
 }
