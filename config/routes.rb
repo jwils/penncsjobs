@@ -1,4 +1,7 @@
 JobBoard::Application.routes.draw do
+  resources :messages
+
+
   resources :job_postings
 
 
