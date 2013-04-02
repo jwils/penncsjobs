@@ -40,12 +40,20 @@ class JobPostingsController < ApplicationController
   # POST /job_postings
   # POST /job_postings.json
   def create
+    @company = Company.find_or_create_by_name(params[:job_posting][:company])
+    params[:job_posting].delete(:company)
     @job_posting = JobPosting.new(params[:job_posting])
+    @job_posting.company = @company
 
     respond_to do |format|
       if @job_posting.save
-        format.html { redirect_to @job_posting, notice: 'Job posting was successfully created.' }
-        format.json { render json: @job_posting, status: :created, location: @job_posting }
+        if @company.description.nil?
+          format.html { redirect_to edit_company_path(@company), notice: "This company doesn't currently have a description. Add one if you'd like."}
+          format.json { render json: @job_posting, status: :created, location: @job_posting }
+        else
+          format.html { redirect_to @job_posting, notice: 'Job posting was successfully created.' }
+          format.json { render json: @job_posting, status: :created, location: @job_posting }
+        end
       else
         format.html { render action: "new" }
         format.json { render json: @job_posting.errors, status: :unprocessable_entity }

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless current_user or devise_controller?
+      flash.keep
       redirect_to new_user_session_path
     end
   end
